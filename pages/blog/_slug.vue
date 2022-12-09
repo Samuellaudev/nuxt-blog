@@ -1,7 +1,10 @@
 <template>
     <article>
-        <nuxt-content :document="article" />
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.description }}</p>
+        <img :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
         <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
+        <nuxt-content :document="article" />
     </article>
 </template>
 
@@ -9,7 +12,7 @@
 export default {
     async asyncData({ $content, params}) {
         const article = await $content('articles', params.slug).fetch()
-
+console.log('article', article);
         return { article }
     },
     methods: {

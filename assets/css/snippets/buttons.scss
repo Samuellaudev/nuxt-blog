@@ -1,0 +1,86 @@
+@mixin wrapper {
+    background-color: #ffffff;
+    padding: 1.25em;
+    box-shadow: 0 0.167rem 0.5rem 0 rgba(192, 192, 192, 0.333);
+    font-size: 0.8rem;
+    display: grid;
+    height: 400px;
+}
+
+@mixin loading-indicator {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    z-index: 80;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(0,0,0, 0.05);
+    display: none;
+
+    &.is-active {
+        display: grid;
+    }
+}
+
+@mixin display {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    display: grid;
+
+    // Prevent tooltip overlap by other position relative DOMs
+    position: relative;
+    z-index: 70;
+}
+
+@mixin amcharts-empty-data-cover {
+    &::v-deep .amcharts-empty-data-cover {
+        .amcharts-Rectangle-group {
+            fill: rgba(255, 255, 255, 0.8);
+        }
+
+        text {
+            fill: #939eab; // Use fill inside SVG
+            font-style: italic;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+@mixin amcharts-empty-data-cover-small {
+    &::v-deep .amcharts-empty-data-cover {
+        .amcharts-Rectangle-group {
+            fill: rgba(0, 0, 0, 0.02);
+        }
+
+        text {
+            fill: #939eab; // Use fill inside SVG
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@mixin amcharts-error {
+    display: grid;
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #f6233f;
+    font-style: italic;
+    font-size: 1.3rem;
+    z-index: 80;
+}
+
+@mixin amcharts-data-not-ready {
+    display: grid;
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #939eab;
+    font-style: italic;
+    font-size: 1.3rem;
+    z-index: 80;
+}
