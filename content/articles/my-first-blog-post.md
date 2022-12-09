@@ -19,3 +19,9 @@ This is some content under heading h3
 <div class="another-test-h2">
     This is some content under heading h2
 </div>
+
+<info-box>
+    <template #info-box>
+        This is a vue component inside markdown using slots
+    </template>
+</info-box>
