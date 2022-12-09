@@ -13,23 +13,24 @@
         </nav>
         <el-divider />
         <nuxt-content :document="article" />
+        <author :author="article.author"></author>
     </article>
 </template>
 
 <script>
 export default {
-    async asyncData({ $content, params}) {
-        const article = await $content('articles', params.slug).fetch()
-console.log('article', article);
-        return { article }
+    async asyncData({ $content, params }) {
+        const article = await $content("articles", params.slug).fetch();
+        console.log("article", article);
+        return { article };
     },
     methods: {
         formatDate(date) {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' }
-            return new Date(date).toLocaleDateString('en', options)
-        }
-    }
-}
+            const options = { year: "numeric", month: "long", day: "numeric" };
+            return new Date(date).toLocaleDateString("en", options);
+        },
+    },
+};
 </script>
 
 <style lang="scss">
@@ -49,7 +50,7 @@ console.log('article', article);
     }
 
     .icon.icon-link {
-        background-image: url('~assets/svg/icon-hashtag.svg');
+        background-image: url("~assets/svg/icon-hashtag.svg");
         display: inline-block;
         width: 20px;
         height: 20px;
@@ -60,5 +61,4 @@ console.log('article', article);
         color: aqua;
     }
 }
-
 </style>
