@@ -60,5 +60,21 @@ export default {
     .another-test-h2 {
         color: aqua;
     }
+
+    .nuxt-content-highlight {
+        position: relative;
+
+        .filename {
+            position: absolute;
+            right: 0;
+            color: gray;
+            z-index: 100;
+            font-weight: light;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-top: 5px;
+            font-family: monospace;
+        }
+    }
 }
 </style>
