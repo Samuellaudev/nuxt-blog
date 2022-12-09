@@ -4,6 +4,14 @@
         <p>{{ article.description }}</p>
         <img :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
         <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
+        <nav>
+            <ul>
+                <li v-for="link of article.toc" :key="link.id">
+                    <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
+                </li>
+            </ul>
+        </nav>
+        <el-divider />
         <nuxt-content :document="article" />
     </article>
 </template>

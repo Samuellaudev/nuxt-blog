@@ -5,6 +5,16 @@ img: first-blog-post.jpg
 alt: first blog post
 ---
 ## test h2
+
+This is some content under heading h2
 ### test h3
 
-content body
+This is some content under heading h3
+
+### another test h3
+
+This is some content under heading h3
+
+## another test h2
+
+This is some content under heading h2
