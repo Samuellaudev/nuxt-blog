@@ -23,3 +23,21 @@ console.log('article', article);
     }
 }
 </script>
+
+<style scoped lang="scss">
+.nuxt-content {
+    h2 {
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+</style>
