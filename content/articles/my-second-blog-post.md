@@ -4,8 +4,8 @@ description: Learning how to use @nuxt/content to create a blog
 img: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80
 alt: my second blog post
 author: 
-  name: Peter
-  bio: All about Peter and what he does and where he works
+  name: Samuel
+  bio: All about Samuel and what he does and where he works
   img: https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80
 tags: 
   - nuxtjs
