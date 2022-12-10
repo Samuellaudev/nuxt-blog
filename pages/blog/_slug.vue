@@ -13,16 +13,25 @@
         </nav>
         <el-divider />
         <nuxt-content :document="article" />
-        <author :author="article.author"></author>
+        <Author :author="article.author" />
+        <PrevNext :prev="prev" :next="next" />
     </article>
 </template>
 
 <script>
+import PrevNext from "../../components/PrevNext.vue";
 export default {
+    components: { PrevNext },
     async asyncData({ $content, params }) {
         const article = await $content("articles", params.slug).fetch();
-        console.log("article", article);
-        return { article };
+        // console.log("article", article);
+        const [prev, next] = await $content("articles")
+            .only(["title", "slug"])
+            .sortBy("createdAt", "asc")
+            .surround(params.slug)
+            .fetch();
+
+        return { article, prev, next };
     },
     methods: {
         formatDate(date) {
