@@ -24,7 +24,7 @@ export default {
     components: { PrevNext },
     async asyncData({ $content, params }) {
         const article = await $content("articles", params.slug).fetch();
-        // console.log("article", article);
+        console.log("article", article);
         const [prev, next] = await $content("articles")
             .only(["title", "slug"])
             .sortBy("createdAt", "asc")
