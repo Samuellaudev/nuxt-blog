@@ -1,5 +1,6 @@
 <template>
     <article>
+        <AppSearchInput/>
         <h1>{{ article.title }}</h1>
         <p>{{ article.description }}</p>
         <img :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
