@@ -1,21 +1,21 @@
 <template>
-    <article>
+    <article class="article-container">
         <AppSearchInput/>
-        <h1>{{ article.title }}</h1>
-        <p>{{ article.description }}</p>
-        <img :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
-        <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
-        <nav>
-            <ul>
-                <li v-for="link of article.toc" :key="link.id">
-                    <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
-                </li>
-            </ul>
-        </nav>
-        <el-divider />
-        <nuxt-content :document="article" />
-        <Author :author="article.author" />
-        <PrevNext :prev="prev" :next="next" />
+            <h1>{{ article.title }}</h1>
+            <p>{{ article.description }}</p>
+            <img class="article-image" :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
+            <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
+            <nav>
+                <ul>
+                    <li v-for="link of article.toc" :key="link.id">
+                        <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
+                    </li>
+                </ul>
+            </nav>
+            <el-divider />
+            <nuxt-content :document="article" />
+            <Author :author="article.author" />
+            <PrevNext :prev="prev" :next="next" />
     </article>
 </template>
 
@@ -44,46 +44,62 @@ export default {
 </script>
 
 <style lang="scss">
-.nuxt-content {
-    p {
-        margin-bottom: 20px;
+.article-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;    
+
+    .article-image {
+        max-width: 100%;
+        max-height: 100%;
+        display: block; /* remove extra space below image */
     }
 
-    h2 {
-        font-weight: bold;
-        font-size: 28px;
-    }
-
-    h3 {
-        font-weight: bold;
-        font-size: 22px;
-    }
-
-    .icon.icon-link {
-        background-image: url("~assets/svg/icon-hashtag.svg");
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background-size: 20px 20px;
-    }
-
-    .another-test-h2 {
-        color: aqua;
-    }
-
-    .nuxt-content-highlight {
-        position: relative;
-
-        .filename {
-            position: absolute;
-            right: 0;
-            color: gray;
-            z-index: 100;
-            font-weight: light;
-            font-size: 12px;
-            margin-right: 10px;
-            margin-top: 5px;
-            font-family: monospace;
+    .nuxt-content {
+        p {
+            margin-bottom: 20px;
+        }
+    
+        h2 {
+            font-weight: bold;
+            font-size: 28px;
+        }
+    
+        h3 {
+            font-weight: bold;
+            font-size: 22px;
+        }
+    
+        .icon.icon-link {
+            background-image: url("~assets/svg/icon-hashtag.svg");
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-size: 20px 20px;
+        }
+    
+        .another-test-h2 {
+            color: aqua;
+        }
+    
+        .nuxt-content-highlight {
+            position: relative;
+    
+            .filename {
+                position: absolute;
+                right: 0;
+                color: gray;
+                z-index: 100;
+                font-weight: light;
+                font-size: 12px;
+                margin-right: 10px;
+                margin-top: 5px;
+                font-family: monospace;
+            }
         }
     }
 }

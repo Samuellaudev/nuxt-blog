@@ -1,13 +1,17 @@
 <template>
     <div>
-        <p class="info-box-outer">
+        <p class="info-box">
             <slot name="info-box">default</slot>
         </p>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.info-box-outer {
+.info-box {
     color: lightcoral;
+}
+
+.info-text {
+    color: blue
 }
 </style>

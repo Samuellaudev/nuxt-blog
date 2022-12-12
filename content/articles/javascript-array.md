@@ -1,18 +1,18 @@
 ---
-title: My First Blog Post
+title: Javascript Array
 description: Learning how to use @nuxt/content to create a blog
-img: https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80
-alt: my first blog post
+img: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80
+alt: javascript array
 author: 
   name: Samuel
-  bio: All about Peter and what he does and where he works
+  bio: All about Samuel and what he does and where he works
   img: https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80
 tags: 
   - nuxtjs
   - javascript
 ---
 
-Welcome to my first blog post using content module
+# JavaScript - Array
 
 ## This is a heading
 This is some more info
@@ -31,15 +31,9 @@ export default {
   nuxt: "is the best"
 }
 ```
-```html[my-first-blog-post.md]
+```html[my-second-blog-post.md]
 <p>code styling is easy</p>
 ```
 
 ### This is a sub heading
-This is some more info
-
-### This is another sub heading
-This is some more info
-
-## This is another heading
 This is some more info
