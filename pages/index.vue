@@ -1,14 +1,23 @@
 <template>
-    <div>
-      This is main page
-      <AppSearchInput/>
-    </div>
+  <div class="container">
+    This is main page
+  </div>
+
 </template>
 
 <script>
-import AppSearchInput from "../components/AppSearchInput.vue";
 export default {
-    components: ["AppSearchInput"],
     name: "IndexPage",
 };
 </script>
+
+<style lang="scss" scoped>
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+</style>

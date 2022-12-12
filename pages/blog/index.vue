@@ -1,13 +1,14 @@
 <template>
   <div class="main-blog-page">
-    <h1>Blog Posts</h1>
-    <ul>
-      <li v-for="article of articles" :key="article.slug">
+    <div class="page-title">
+      <h1>Blog Posts</h1>
+    </div>
+    <ul class="blog-posts">
+      <li class="blog-individual-post" v-for="article of articles" :key="article.slug">
         <nuxt-link :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-          <img width="500px" :src="article.img" alt="">
+          <img class="blog-image" :src="article.img" alt="">
           <div class="blog-content">
             <h2>{{ article.title }}</h2>
-            <p>by {{ article.author.name }}</p>
             <p>{{ article.description }}</p>
           </div>
         </nuxt-link>
@@ -30,3 +31,26 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" scoped>
+.main-blog-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+
+    .blog-posts {
+        .blog-individual-post {
+            text-align: center;
+            .blog-image {
+                width: 280px;
+                height: 280px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+</style>

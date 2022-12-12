@@ -1,23 +1,16 @@
 <template>
     <div>
         <el-header class="header"><LayoutHeader /></el-header>
-        <nav>
-        <ul>
-            <li>
-            <NuxtLink to="/">Home</NuxtLink>
-            </li>
-        </ul>
-        </nav>
         <Nuxt />
     </div>
 </template>
 
 <script>
-import LayoutHeader from '@/components/layout/LayoutHeader'
+import LayoutHeader from "@/components/layout/LayoutHeader";
 
 export default {
-    components: { LayoutHeader }
-}
+    components: { LayoutHeader },
+};
 </script>
 
 <style>

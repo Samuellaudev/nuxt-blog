@@ -1,82 +1,56 @@
 <template>
-<div class="layout-header">
-    <el-menu class="header-menu" mode="horizontal" menu-trigger="click">
-        <img width="160px" class="portal-logo" :src="require('@/assets/img/full_logo.png')" />
-        <el-submenu class="user-menu" index="user">
-            <el-menu-item-group class="user-list">
-                <!--  -->
-            </el-menu-item-group>
-        </el-submenu>
+  <div class="layout-header">
+    <div class="header-logo">
+      <nuxt-link to="/">
+        <img class="logo-image" :src="require('@/assets/img/Logo.png')" />
+      </nuxt-link>
+    </div>
+    <el-menu :default-active="activeIndex" class="header-menu" mode="horizontal" @select="handleSelect">
+      <el-menu-item index="about"><nuxt-link to="/about">About</nuxt-link></el-menu-item>
+      <el-menu-item index="blog"><nuxt-link to="/blog">Blog</nuxt-link></el-menu-item>
     </el-menu>
-</div>
+    <div class="header-social-media-icons">
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-
-}
+    data() {
+        return {
+            activeIndex: "about",
+        };
+    },
+    methods: {
+        handleSelect(key, keyPath) {
+            console.log(key, keyPath);
+        },
+    },
+};
 </script>
 
-<style scoped>
-.portal-logo {
-    background: white;
-    margin-top: 10px;
-    margin-left: 20px;
+<style scoped lang="scss">
+.layout-header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1080px;
+    margin: 0 auto;
+    .logo-image {
+        background: white;
+        margin-top: 10px;
+        max-width: 40px;
+        margin-bottom: 0px;
+    }
 }
 
-.user-menu {
-    float: right;
-}
+.header-menu {
+    ::v-deep.el-menu.el-menu--horizontal {
+        border-bottom: none;
+    }
 
-.el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
-    border: none;
-}
-
-.el-menu--horizontal .el-menu .el-menu-item, .el-menu--horizontal .el-menu .el-submenu__title {
-    background-color: #FFF;
-    float: none;
-    height: 36px;
-    line-height: 36px;
-    padding: 0 10px;
-    color: #909399;
-}
-
-a {
-    color: #3a8fc8;
-    text-decoration: none;
-}
-
-.user-list .user-item:hover,
-.user-list .user-item.is-active {
-    color: #23a9f6;
-}
-
-.user-list .user-item {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.user-list .user-item-link {
-    display: block;
-    padding: 0 10px;
-}
-
-.user-list::v-deep .el-menu-item-group__title {
-    display: none;
-}
-
-.el-avatar--icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-}
-
-::v-deep .el-menu--horizontal .el-menu .el-menu-item.is-active {
-    color: #23a9f6;
-}
-
-.user-item .user-item-link,
-.user-item .user-item-link i {
-    color: inherit;
+    ::v-deep .el-menu-item {
+        font-size: 18px;
+        font-weight: bold;
+    }
 }
 </style>
