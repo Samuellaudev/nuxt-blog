@@ -1,6 +1,6 @@
 <template>
-    <div>
-      This is about page
+    <div class="container">
+        This is about page
     </div>
 </template>
 
@@ -9,3 +9,7 @@ export default {
     name: "About",
 };
 </script>
+
+<style lang="scss" scoped>
+
+</style>

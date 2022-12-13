@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+<div class="container">
     This is main page
-  </div>
+</div>
 
 </template>
 

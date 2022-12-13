@@ -1,17 +1,17 @@
 <template>
-  <div class="layout-header">
+<div class="layout-header">
     <div class="header-logo">
-      <nuxt-link to="/">
+    <nuxt-link to="/">
         <img class="logo-image" :src="require('@/assets/img/Logo.png')" />
-      </nuxt-link>
+    </nuxt-link>
     </div>
     <el-menu :default-active="activeIndex" class="header-menu" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="about"><nuxt-link to="/about">About</nuxt-link></el-menu-item>
-      <el-menu-item index="blog"><nuxt-link to="/blog">Blog</nuxt-link></el-menu-item>
+    <el-menu-item index="about"><nuxt-link to="/about">About</nuxt-link></el-menu-item>
+    <el-menu-item index="blog"><nuxt-link to="/blog">Blog</nuxt-link></el-menu-item>
     </el-menu>
     <div class="header-social-media-icons">
     </div>
-  </div>
+</div>
 </template>
 
 <script>

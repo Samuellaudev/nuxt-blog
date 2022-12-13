@@ -1,5 +1,5 @@
 <template>
-    <article class="article-container">
+    <article class="article-container container">
         <AppSearchInput/>
             <h1>{{ article.title }}</h1>
             <p>{{ article.description }}</p>
@@ -44,15 +44,7 @@ export default {
 </script>
 
 <style lang="scss">
-.article-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
-    max-width: 1200px;
-    height: auto;
-    margin: 0 auto;    
-
+.article-container {  
     .article-image {
         max-width: 100%;
         max-height: 100%;
