@@ -24,6 +24,7 @@ head: {
 
 // Global CSS: https://go.nuxtjs.dev/config-css
 css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
     'element-ui/lib/theme-chalk/index.css',
     '@/assets/css/main.scss'
 ],
@@ -32,6 +33,7 @@ css: [
 ** https://nuxtjs.org/guide/plugins
 */
 plugins: [
+    '@/plugins/fontawesome.js',
     '@/plugins/element-ui'
 ],
 
