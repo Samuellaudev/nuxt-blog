@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-header class="header"><LayoutHeader /></el-header>
-        <Nuxt />
+        <Nuxt class="main-content"/>
     </div>
 </template>
 
@@ -13,9 +13,15 @@ export default {
 };
 </script>
 
-<style>
-:root {
-    --primary-color: #00c58e;
+<style lang="scss">
+.el-header {
+    height: 66px;
+    position: fixed;
+    width: 100%;
+}
+
+.main-content {
+    padding-top: 66px;
 }
 
 body {
@@ -37,18 +43,6 @@ a:hover {
     text-decoration: underline;
 }
 
-main {
-    margin: 0 auto;
-    margin-top: 100px;
-    padding: 0 1rem;
-    max-width: 1280px;
-    text-align: center;
-}
-
-img {
-    margin-bottom: 1rem;
-}
-
 ul {
     list-style-type: none;
     padding: 0;
@@ -60,12 +54,5 @@ li {
     margin: 0 0.5rem;
     padding: 0.25rem;
     font-size: 1.2rem;
-}
-
-nav {
-    padding: 0 1rem;
-}
-a.nuxt-link-exact-active {
-    color: #00c58e;
 }
 </style>
