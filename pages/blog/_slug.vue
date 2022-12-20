@@ -21,11 +21,12 @@
 
 <script>
 import PrevNext from "../../components/PrevNext.vue";
+
 export default {
     components: { PrevNext },
     async asyncData({ $content, params }) {
         const article = await $content("articles", params.slug).fetch();
-        console.log("article", article);
+        // console.log("article", article);
         const [prev, next] = await $content("articles")
             .only(["title", "slug"])
             .sortBy("createdAt", "asc")
@@ -37,6 +38,7 @@ export default {
     methods: {
         formatDate(date) {
             const options = { year: "numeric", month: "long", day: "numeric" };
+
             return new Date(date).toLocaleDateString("en", options);
         },
     },
@@ -58,12 +60,12 @@ export default {
     
         h2 {
             font-weight: bold;
-            font-size: 28px;
+            // font-size: 28px;
         }
     
         h3 {
             font-weight: bold;
-            font-size: 22px;
+            // font-size: 22px;
         }
     
         .icon.icon-link {

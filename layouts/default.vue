@@ -1,7 +1,8 @@
 <template>
     <div>
         <el-header class="header"><LayoutHeader /></el-header>
-        <Nuxt class="main-content"/>
+        <Nuxt class="default-nuxt-content" />
+        <el-backtop />
     </div>
 </template>
 
@@ -20,8 +21,9 @@ export default {
     width: 100%;
 }
 
-.main-content {
+.default-nuxt-content {
     padding-top: 66px;
+    max-width: 896px;
 }
 
 body {
@@ -54,5 +56,9 @@ li {
     margin: 0 0.5rem;
     padding: 0.25rem;
     font-size: 1.2rem;
+}
+
+.el-backtop {
+    color: #30A1A6;
 }
 </style>
