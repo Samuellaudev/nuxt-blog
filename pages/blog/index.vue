@@ -50,6 +50,12 @@ export default {
                 height: 280px;
                 object-fit: cover;
             }
+
+            &:hover {
+                transition: 0.3s;
+                border: 0.1px solid #fff;
+                box-shadow: 5px 3px 0px #fff;
+            }
         }
     }
 }
