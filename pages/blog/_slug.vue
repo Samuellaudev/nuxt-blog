@@ -3,8 +3,8 @@
         <AppSearchInput/>
         <div class="article-header">
           <h1 class="article-title">{{ article.title }}</h1>
-          <!-- <p class="article-description">{{ article.description }}</p> -->
           <span class="article-created-date">{{ formatDate(article.createdAt) }}</span>
+          <Tags :tags="tags" />
         </div>
         <img class="article-image" :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
         <!-- <p>Article last updated: {{ formatDate(article.updatedAt) }}</p> -->
@@ -14,7 +14,7 @@
                     <span class="toc-title">Table of Content</span>
                 </template>
                 <el-menu-item-group v-for="(link, index) of article.toc" :key="link.id">
-                    <el-menu-item index>
+                    <el-menu-item>
                         <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
                     </el-menu-item>
                 </el-menu-item-group>
@@ -22,7 +22,6 @@
         </el-menu>
         <el-divider />
         <nuxt-content :document="article" />
-        <Author :author="article.author" />
         <PrevNext :prev="prev" :next="next" />
     </article>
 </template>
@@ -40,13 +39,19 @@ export default {
     async asyncData({ $content, params }) {
         const article = await $content("articles", params.slug).fetch();
         // console.log("article", article);
+
+        const tags = await $content("tags")
+            .only(["name", "description", "img", "slug"])
+            .sortBy("createdAt", "asc")
+            .fetch();
+
         const [prev, next] = await $content("articles")
             .only(["title", "slug"])
             .sortBy("createdAt", "asc")
             .surround(params.slug)
             .fetch();
 
-        return { article, prev, next };
+        return { article, tags, prev, next };
     },
     methods: {
         formatDate(date) {
@@ -149,22 +154,22 @@ export default {
         }
 
         h2 {
-            font-weight: bold;
-            // font-size: 28px;
+            font-weight: 400;
+            line-height: 2em;
         }
 
         h3 {
             font-weight: bold;
-            // font-size: 22px;
+            padding-top: 0.3em;
         }
 
-        .icon.icon-link {
-            background-image: url("~assets/svg/icon-hashtag.svg");
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-size: 20px 20px;
-        }
+        // .icon.icon-link {
+        //     background-image: url("~assets/svg/icon-hashtag.svg");
+        //     display: inline-block;
+        //     width: 20px;
+        //     height: 20px;
+        //     background-size: 20px 20px;
+        // }
 
         .another-test-h2 {
             color: aqua;

@@ -1,6 +1,6 @@
 ---
 title: How to add Font Awesome to Nuxt
-description: The Content module is a git files based headless CMS that provides powerful features when it comes to write blogs, documentation sites or just adding content to any regular website. In this post we will go through most of the benefits of this module and discover how we can create a blog with it.
+description: Learn how to add Font Awesome to your Nuxt project
 img: https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80
 alt: Add Font Awesome to Nuxt
 author: 
@@ -16,7 +16,7 @@ tags:
   If you just want to add usual Font Awesome icons, then the official tutorials in Font Awesome is suffice. However, if you want to add special icons, such as brands like Instagram, then you would need to add a few more lines to the files. Here I use Nuxt 2 as an example.
 </div>
 
-## First, follow the official documentation
+## First, install the core package
 
 ### Step 1: Bring in Font Awesome
 
@@ -29,7 +29,7 @@ tags:
   </template>
 </info-box> -->
 
-First, install the core package and vue-fontawesome component.
+To get started, install the core package and vue-fontawesome component.
 
 ```js[]
 // for Nuxt 2
@@ -38,7 +38,7 @@ npm i --save @fortawesome/vue-fontawesome@latest-2 @fortawesome/fontawesome-svg-
 
 ### Step 2: Create file in plugins folder
 
-Second, create a <b>fontawesome.js</b> file in <b>plugins</b> folder
+Then, create a <b>fontawesome.js</b> file in <b>plugins</b> folder
 
 ```js[/plugin/fontawesome.js]
 // For Nuxt 2
@@ -60,7 +60,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 ### Step 3: Modify nuxt.config.js
 
-Then, add the paths to 'css' and 'plugins' sections under <b>nuxt.config.js</b>.
+Add the paths to 'css' and 'plugins' sections under <b>nuxt.config.js</b>.
 
 ```js[nuxt.config.js]
 // Modify nuxt.config.js adding to the `css` and `plugins` sections.

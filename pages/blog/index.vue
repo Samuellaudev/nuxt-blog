@@ -1,20 +1,20 @@
 <template>
-  <div class="main-blog-page">
-    <div class="page-title">
-      <h1>Blog Posts</h1>
+<div class="main-blog-page">
+    <div class="page-title"><h1>Blog Posts</h1></div>
+    <div class="blog-posts">
+        <div class="blog-individual-post" v-for="article of articles" :key="article.slug">
+            <nuxt-link class="blog-link" :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+                <img class="blog-image" :src="article.img" alt="">
+            </nuxt-link>
+            <nuxt-link class="blog-link" :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+                <div class="blog-content">
+                  <h2 class="blog-title">{{ article.title }}</h2>
+                  <p class="blog-description">{{ article.description }}</p>
+                </div>
+            </nuxt-link>
+        </div>
     </div>
-    <ul class="blog-posts">
-      <li class="blog-individual-post" v-for="article of articles" :key="article.slug">
-        <nuxt-link :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-          <img class="blog-image" :src="article.img" alt="">
-          <div class="blog-content">
-            <h2>{{ article.title }}</h2>
-            <p>{{ article.description }}</p>
-          </div>
-        </nuxt-link>
-      </li>
-    </ul>
-  </div>
+</div>
 </template>
 
 <script>
@@ -22,7 +22,7 @@ export default {
     async asyncData({ $content, params }) {
         const articles = await $content("articles")
             .only(["title", "description", "img", "slug", "author"])
-            .sortBy("createdAt", "asc")
+            .sortBy("createdAt", "desc")
             .fetch();
 
         return {
@@ -45,16 +45,27 @@ export default {
     .blog-posts {
         .blog-individual-post {
             text-align: center;
-            .blog-image {
-                width: 280px;
-                height: 280px;
-                object-fit: cover;
-            }
+            display: flex;
+            align-items: start;
+            padding: 1rem;
+            .blog-link {
+                display: inline-block;
 
-            &:hover {
-                transition: 0.3s;
-                border: 0.1px solid #fff;
-                box-shadow: 5px 3px 0px #fff;
+                .blog-content {
+                    padding-left: 1rem;
+                }
+            }
+            .blog-image {
+                width: 10rem;
+                height: 10rem;
+                object-fit: cover;
+
+                &:hover {
+                    transition: 0.3s;
+                    -webkit-transform: scale(1.3);
+                    -ms-transform: scale(1.3);
+                    transform: scale(1.1);
+                }
             }
         }
     }
