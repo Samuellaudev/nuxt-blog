@@ -1,22 +1,19 @@
+// variables & functions
+// @import 'functions';
+@import 'variables';
+
+// base & layout
+@import 'base';
+@import 'breakpoints';
+@import 'grid';
+
+// colors
+// @import 'colors';
+
+// utilities (margin, padding, opacity)
+@import 'utilities';
+
 body {
-    background-color: #001F26;
+    background-color: $primary;
     color: white;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    height: auto;
-    margin: 0 auto;
-}
-
-.primary-color {
-    background-color: #001F26;
-}
-
-.secondary-color {
-    background-color: #30A1A6;
 }
