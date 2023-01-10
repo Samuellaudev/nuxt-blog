@@ -16,7 +16,7 @@ tags:
 
 ## This is a heading
 
-<div class="html-inside-markdown">
+<div class="html-content">
   This is HTML inside markdown that has a class some classes
 </div>
 

@@ -1,14 +1,14 @@
 <template>
-    <article class="article-container container">
-        <AppSearchInput/>
-        <div class="article-header">
-            <h1 class="article-title">{{ article.title }}</h1>
-            <span class="article-created-date">{{ formatDate(article.createdAt) }}</span>
-            <Tags :tags="tags" />
-        </div>
-        <img class="article-image" :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
-        <!-- <p>Article last updated: {{ formatDate(article.updatedAt) }}</p> -->
-        <el-menu class="toc-menu">
+  <article class="article-container container">
+    <AppSearchInput />
+    <div class="article-header">
+      <h1 class="article-title">{{ article.title }}</h1>
+      <span class="article-created-date">{{ formatDate(article.createdAt) }}</span>
+      <Tags :tags="tags" />
+    </div>
+    <img class="article-image" :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
+    <!-- <p>Article last updated: {{ formatDate(article.updatedAt) }}</p> -->
+    <!-- <el-menu class="toc-menu">
             <el-submenu class="toc-submenu">
                 <template slot="title">
                     <span class="toc-title">Table of Content</span>
@@ -19,11 +19,11 @@
                     </el-menu-item>
                 </el-menu-item-group>
             </el-submenu>
-        </el-menu>
-        <el-divider />
-        <nuxt-content :document="article" />
-        <PrevNext :prev="prev" :next="next" />
-    </article>
+        </el-menu> -->
+    <el-divider />
+    <nuxt-content :document="article" />
+    <PrevNext :prev="prev" :next="next" />
+  </article>
 </template>
 
 <script>
@@ -65,10 +65,10 @@ export default {
 
 <style lang="scss">
 .article-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .article-title {
     font-size: 2.25rem;
@@ -81,7 +81,7 @@ export default {
     font-size: 14px;
     display: inline-block;
     margin: 10px 0;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
   }
 
   .article-description {
@@ -91,7 +91,8 @@ export default {
   .article-image {
     max-width: 50%;
     max-height: 50%;
-    display: block; /* remove extra space below image */
+    display: block;
+    /* remove extra space below image */
   }
 
   .toc-menu {
@@ -149,6 +150,10 @@ export default {
   }
 
   .nuxt-content {
+    .html-content {
+      line-height: 1.5rem;
+    }
+
     p {
       margin-bottom: 20px;
     }

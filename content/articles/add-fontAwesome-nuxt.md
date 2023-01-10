@@ -12,22 +12,13 @@ tags:
   - others
 ---
 
-<div class="html-inside-markdown">
+<div class="html-content">
   If you just want to add usual Font Awesome icons, then the official tutorials in Font Awesome is suffice. However, if you want to add special icons, such as brands like Instagram, then you would need to add a few more lines to the files. Here I use Nuxt 2 as an example.
 </div>
 
 ## First, install the core package
 
 ### Step 1: Bring in Font Awesome
-
-<!-- <info-box>
-  <template #info-box>
-    <span class="info-text">
-        This is a vue component inside markdown using slots with class-name "info-text"
-    </span>
-    <p>This is a vue component inside markdown using slots with no class-name</p>
-  </template>
-</info-box> -->
 
 To get started, install the core package and vue-fontawesome component.
 
