@@ -2,6 +2,7 @@
 <div class="main-blog-page">
     <div class="page-title"><h1>Blog Posts</h1></div>
     <div class="blog-posts">
+      <!-- <el-divider /> -->
         <div class="blog-individual-post" v-for="article of articles" :key="article.slug">
             <nuxt-link class="blog-link" :to="{ name: 'blog-slug', params: { slug: article.slug } }">
                 <img class="blog-image" :src="article.img" alt="">
@@ -10,6 +11,7 @@
                 <div class="blog-content">
                   <h2 class="blog-title">{{ article.title }}</h2>
                   <p class="blog-description">{{ article.description }}</p>
+                  <span class="article-created-date">{{ formatDate(article.createdAt) }}</span>
                 </div>
             </nuxt-link>
         </div>
@@ -21,14 +23,21 @@
 export default {
     async asyncData({ $content, params }) {
         const articles = await $content("articles")
-            .only(["title", "description", "img", "slug", "author"])
+            .only(["title", "description", "img", "slug", "author", 'createdAt'])
             .sortBy("createdAt", "desc")
             .fetch();
-
+console.log('articles', articles);
         return {
             articles,
         };
     },
+    methods: {
+    formatDate(date) {
+      const options = { year: "numeric", month: "long", day: "numeric" };
+
+      return new Date(date).toLocaleDateString("en", options);
+    },
+  },
 };
 </script>
 
@@ -47,12 +56,21 @@ export default {
             text-align: center;
             display: flex;
             align-items: start;
-            padding: 1rem;
+            border-bottom: 1px solid white;
+            padding: 20px 0;
             .blog-link {
                 display: inline-block;
+                  text-decoration: none;
 
                 .blog-content {
                     padding-left: 1rem;
+
+                    .blog-title {
+                      margin-bottom: 1rem;
+                      &:hover {
+                        text-decoration: underline;
+                      }
+                    }
                 }
             }
             .blog-image {
@@ -70,4 +88,8 @@ export default {
         }
     }
 }
+
+// .el-divider--horizontal {
+//   margin-bottom: 0;
+// }
 </style>

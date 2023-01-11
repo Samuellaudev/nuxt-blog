@@ -19,10 +19,12 @@ export default {
     height: 66px;
     position: fixed;
     width: 100%;
+    padding: 0;
+    z-index: 100;
 }
 
 .default-nuxt-content {
-    padding-top: 66px;
+    padding-top: 80px;
     max-width: 896px;
 }
 

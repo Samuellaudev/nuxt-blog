@@ -1,7 +1,8 @@
 ---
 title: How to add Font Awesome to Nuxt
 description: Learn how to add Font Awesome to your Nuxt project
-img: https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80
+# img: https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80
+img: /img/articles_thumbnail/font_awesome_logo.png
 alt: Add Font Awesome to Nuxt
 author: 
   name: Samuel
@@ -18,7 +19,7 @@ tags:
 
 ## First, install the core package
 
-### Step 1: Bring in Font Awesome
+### Bring in Font Awesome
 
 To get started, install the core package and vue-fontawesome component.
 
@@ -27,7 +28,7 @@ To get started, install the core package and vue-fontawesome component.
 npm i --save @fortawesome/vue-fontawesome@latest-2 @fortawesome/fontawesome-svg-core 
 ```
 
-### Step 2: Create file in plugins folder
+### Create file in plugins folder
 
 Then, create a <b>fontawesome.js</b> file in <b>plugins</b> folder
 
@@ -49,7 +50,7 @@ library.add(fas)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 ```
 
-### Step 3: Modify nuxt.config.js
+### Modify nuxt.config.js
 
 Add the paths to 'css' and 'plugins' sections under <b>nuxt.config.js</b>.
 
@@ -64,7 +65,7 @@ plugins: [
 ]
 ```
 
-### Step 4: Add icons
+### Add icons
 
 Finally, add icons with the syntax provided by Font Awesome to the template area.
 
@@ -79,13 +80,13 @@ Finally, add icons with the syntax provided by Font Awesome to the template area
 
 ## Second, add extra icon packages for brand icons
 
-### Step 1: Install brand icon packages
+### Install brand icon packages
 
 ```js[]
 npm install --save @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons
 ```
 
-### Step 2: Bring in the brand library
+### Bring in the brand library
 
 Inside <b>fontawesome.js</b>, add the library corresponding to the brand icons.
 
@@ -95,7 +96,7 @@ library.add(fab)
 ...
 ```
 
-### Step 3: Add the brand icons
+### Add the brand icons
 
 Finally, we can add the brand icons to the template.
 

@@ -1,10 +1,10 @@
 <template>
   <article class="article-container container">
-    <AppSearchInput />
+    <!-- <AppSearchInput /> -->
     <div class="article-header">
       <h1 class="article-title">{{ article.title }}</h1>
       <span class="article-created-date">{{ formatDate(article.createdAt) }}</span>
-      <Tags :tags="tags" />
+      <!-- <Tags :tags="tags" /> -->
     </div>
     <img class="article-image" :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
     <!-- <p>Article last updated: {{ formatDate(article.updatedAt) }}</p> -->
@@ -22,6 +22,7 @@
         </el-menu> -->
     <el-divider />
     <nuxt-content :document="article" />
+    <el-divider />
     <PrevNext :prev="prev" :next="next" />
   </article>
 </template>
@@ -95,6 +96,10 @@ export default {
     /* remove extra space below image */
   }
 
+  .nuxt-content-container {
+      width: 100%;
+    }
+
   .toc-menu {
     background: none;
     border: none;
@@ -152,10 +157,13 @@ export default {
   .nuxt-content {
     .html-content {
       line-height: 1.5rem;
+      --tw-text-opacity: 1;
+      color: rgba(146, 173, 173, var(--tw-text-opacity));
     }
 
     p {
-      margin-bottom: 20px;
+      font-weight: 200;
+      line-height: 1.5rem;
     }
 
     h1 {
@@ -164,13 +172,15 @@ export default {
     }
 
     h2 {
-      font-weight: 400;
+      font-weight: bold;
       line-height: 2em;
+      margin: 1rem 0;
     }
 
     h3 {
-      font-weight: bold;
+      font-weight: 600;
       padding-top: 0.3em;
+      margin: 0.5rem 0;
     }
 
     // .icon.icon-link {
@@ -181,18 +191,15 @@ export default {
     //     background-size: 20px 20px;
     // }
 
-    .another-test-h2 {
-      color: aqua;
-    }
-
     .nuxt-content-highlight {
       position: relative;
+      margin: 1rem 0;
 
       .filename {
         position: absolute;
         right: 0;
         color: gray;
-        z-index: 100;
+        z-index: 10;
         font-weight: light;
         font-size: 12px;
         margin-right: 10px;
