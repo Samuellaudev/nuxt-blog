@@ -2,7 +2,7 @@
   <div class="container mb-5">
     <div class="row mt-1 gap-2">
       <div class="about-section-content col-12-xs col-6-sm col-6-xl">
-        <div class="about-section-title font-xl mb-2">ABOUT ME</div>
+        <h2 class="about-section-title font-xl mb-2">ABOUT ME</h2>
         <div v-for="(paragraph, index) in paragraphContent" :key="index">
           <p class="mb-2">{{ paragraph.content }}</p>
         </div>
@@ -14,7 +14,7 @@
     <el-divider />
     <div class="row mt-1 gap-2">
       <div class="experience-section-content col-12-xs col-6-sm col-6-xl">
-        <div class="experience-section-title font-xl mb-2">EXPERIENCE</div>
+        <h2 class="experience-section-title font-xl mb-2">EXPERIENCE</h2>
         <el-timeline class="timeline p-2 br-sm">
           <el-timeline-item v-for="(activity, index) in activities" :key="index" :icon="activity.icon"
             :type="activity.type" :color="activity.color" :size="activity.size">
@@ -25,7 +25,7 @@
         </el-timeline>
       </div>
       <div class="skill-section-content col-12-xs col-6-sm col-6-xl">
-        <div class="skill-section-title font-xl mb-2">SKILLS</div>
+        <h2 class="skill-section-title font-xl mb-2">SKILLS</h2>
         <div class="progress-bar p-2 br-sm">
           <div v-for="(item, index) in progressBarData" :key="index">
             <span class="skill-title">{{ item.skillTitle }}</span>

@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="main-page">
     This is main page
 </div>
 
@@ -12,12 +12,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-    max-width: 1080px;
-    margin: 0 auto;
-    display: flex;
+.main-page {
+  display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 2rem;
 }
 </style>

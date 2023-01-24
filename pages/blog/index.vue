@@ -11,7 +11,7 @@
                 <div class="blog-content">
                   <h2 class="blog-title">{{ article.title }}</h2>
                   <p class="blog-description">{{ article.description }}</p>
-                  <span class="article-created-date">{{ formatDate(article.createdAt) }}</span>
+                  <div class="article-created-date">{{ formatDate(article.createdAt) }}</div>
                 </div>
             </nuxt-link>
         </div>
@@ -52,11 +52,15 @@ console.log('articles', articles);
     margin: 0 auto;
     margin-bottom: 2rem;
 
+    .page-title {
+      line-height: 6rem;
+    }
+
     .blog-posts {
         .blog-individual-post {
             text-align: center;
             display: flex;
-            align-items: start;
+            align-items: center;
             border-bottom: 1px solid white;
             padding: 20px 0;
             .blog-link {
@@ -65,12 +69,17 @@ console.log('articles', articles);
 
                 .blog-content {
                     padding-left: 1rem;
+                    text-align: left;
 
                     .blog-title {
                       margin-bottom: 1rem;
                       &:hover {
                         text-decoration: underline;
                       }
+                    }
+
+                    .article-created-date {
+                      line-height: 3rem;
                     }
                 }
             }
