@@ -50,6 +50,7 @@ console.log('articles', articles);
     max-width: 1200px;
     height: auto;
     margin: 0 auto;
+    margin-bottom: 2rem;
 
     .blog-posts {
         .blog-individual-post {
