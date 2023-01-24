@@ -22,6 +22,8 @@
         </el-menu> -->
     <el-divider />
     <nuxt-content :document="article" />
+    <el-divider></el-divider>
+    <Disqus class="disqus-frame" />
     <el-divider />
     <PrevNext :prev="prev" :next="next" />
   </article>
@@ -97,8 +99,8 @@ export default {
   }
 
   .nuxt-content-container {
-      width: 100%;
-    }
+    width: 100%;
+  }
 
   .toc-menu {
     background: none;
@@ -212,6 +214,10 @@ export default {
   .el-divider {
     background-color: rgba(255, 255, 255, 0.2);
     max-width: 100%;
+  }
+
+  .disqus-frame {
+    width: 100%;
   }
 }
 </style>
