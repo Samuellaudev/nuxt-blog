@@ -34,6 +34,7 @@ export default {
     "@/plugins/fontawesome.js",
     "@/plugins/element-ui",
     "@/plugins/disqus",
+    '@/plugins/config'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
