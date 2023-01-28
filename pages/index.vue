@@ -3,7 +3,9 @@
         <div class="container mb-5">
             <div class="row mt-5 mb-5 gap-2">
                 <section class="section-introduction">
-                    <h1 class="name">Hi, I'm Samuel Lau.</h1>
+                    <h1 class="name">
+                        <img class="icon-wow" src="@/assets/svg/wow.svg" alt="" />Hi, I'm Samuel Lau.
+                    </h1>
                     <TypingEffect />
                 </section>
             </div>
@@ -16,7 +18,9 @@
                     </div>
                 </section>
                 <section class="about-section-image col-12-xs col-6-sm col-6-xl">
-                    <img class="logo-image" :src="require('@/assets/img/portrait_human.png')" />
+                    <div class="pattern-dots-md gray-light logo-image">
+                        <img class="portrait-image" style="transform:translate(23px, -20px);" :src="require('@/assets/img/portrait_human.png')"/>
+                    </div>
                 </section>
             </div>
             <el-divider />
@@ -122,6 +126,13 @@ export default {
 
         .name {
             padding-bottom: 1rem;
+            position: relative;
+        }
+
+        .icon-wow {
+            position: absolute;
+            top: -15px;
+            left: -20px;
         }
 
         .typing-effect-container {
@@ -149,11 +160,11 @@ export default {
             box-shadow: 0 2px 12px 0 rgb(0 0 0 / 100%);
 
             &:hover {
-                    transition: 0.3s ease-out;
-                    -webkit-transform: scale(1.3);
-                    -ms-transform: scale(1.3);
-                    transform: scale(1.05);
-                }
+                transition: 0.3s ease-out;
+                -webkit-transform: scale(1.3);
+                -ms-transform: scale(1.3);
+                transform: scale(1.05);
+            }
 
             .blog-link {
                 display: inline-block;
@@ -205,8 +216,23 @@ export default {
     }
 
     .about-section-image {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         .logo-image {
-            border-radius: 20px;
+            max-width: 80%;
+
+            .portrait-image {
+                border-radius: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .about-section-image {
+            margin-top: 40px;
         }
     }
 
