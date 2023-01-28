@@ -7,8 +7,8 @@
                     <TypingEffect />
                 </section>
             </div>
-            <!-- <el-divider /> -->
-            <div class="row mt-1 mb-5 gap-2">
+            <el-divider />
+            <div class="row mt-3 mb-3 gap-2">
                 <section id="about" class="section-about-me col-12-xs col-6-sm col-6-xl">
                     <h2 class="about-section-title font-xl mb-2">Nice to meet you!</h2>
                     <div v-for="(paragraph, index) in paragraphContent" :key="index">
@@ -19,8 +19,8 @@
                     <img class="logo-image" :src="require('@/assets/img/portrait_human.png')" />
                 </section>
             </div>
-            <!-- <el-divider /> -->
-            <div class="row mt-1 mb-5 gap-2">
+            <el-divider />
+            <div class="row mt-3 mb-3 gap-2">
                 <h2 class="blog-section-title font-xl">Latest blogs</h2>
                 <section class="section-latest-blog">
                     <div class="blog-individual-post" v-for="article of articles" :key="article.slug">
@@ -37,8 +37,8 @@
                     </div>
                 </section>
             </div>
-            <!-- <el-divider /> -->
-            <div class="row mt-1 gap-2">
+            <el-divider />
+            <div class="row mt-3 gap-2">
                 <section class="section-experience experience-section-content col-12-xs col-6-sm col-6-xl">
                     <h2 class="experience-section-title font-xl mb-2">Experience</h2>
                     <el-timeline class="timeline p-2 br-sm">
@@ -70,76 +70,11 @@ export default {
     components: { TypingEffect },
     name: "IndexPage",
     data() {
-        const paragraphContent = [
-            {
-                content: `It’s Samuel, Front-End Web Developer. After graduated with a degree in commerce, I
-                started to work as a rehab fitness trainer in fitness industry. I enjoy the process to help people
-                achieving their fitness goals.`,
-            },
-            {
-                content: `Like many others, the coronavirus (COVID-19) outbreak has had a big impact on my career,
-                which I had started to develop an interest in graphic design and using WordPress to develop my first
-                website.`,
-            },
-            {
-                content: `Learning to code and web design through a self-learning path is not easy. However, it’s
-                the creative work that makes me happy and I enjoy bringing ideas to life through browser. It’s my
-                pleasure to share it with others!`,
-            }
-        ]
-        const activities = [
-            {
-                title: 'Web Developer',
-                company: 'PressLogic',
-                timestamp: '2022-current',
-                type: 'primary',
-                size: 'large',
-            }, {
-                title: 'Junior Web Developer',
-                company: 'LANE EIGHT',
-                timestamp: '2022',
-            }, {
-                title: 'Front-End Web Developer',
-                company: 'Freelance',
-                timestamp: '2021-2022',
-            }, {
-                title: 'Fitness Trainer',
-                company: 'Chinese YMCA of Hong Kong',
-                timestamp: '2020-2021',
-            }, {
-                title: 'Omni Sport Leader',
-                company: 'Decathlon Hong Kong',
-                timestamp: '2017-2018'
-            }
-        ]
+        const paragraphContent = this.$config.paragraphsDetails
 
-        const progressBarData = [
-            {
-                skillTitle: 'HTML5 + CSS3',
-                strokeWidth: 26,
-                percentage: 90
-            }, {
-                skillTitle: 'JavaScript',
-                strokeWidth: 24,
-                percentage: 80
-            }, {
-                skillTitle: 'Nuxt.js',
-                strokeWidth: 22,
-                percentage: 70
-            }, {
-                skillTitle: 'Vue.js',
-                strokeWidth: 20,
-                percentage: 70
-            }, {
-                skillTitle: 'Node.js',
-                strokeWidth: 20,
-                percentage: 40
-            }, {
-                skillTitle: 'PhotoShop & Illustrator',
-                strokeWidth: 20,
-                percentage: 30
-            }
-        ]
+        const activities = this.$config.activitiesDetails
+
+        const progressBarData = this.$config.progressBarDetails
 
         return { paragraphContent, activities, progressBarData };
     },
