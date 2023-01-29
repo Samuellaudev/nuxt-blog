@@ -30,6 +30,7 @@
     },
     "devDependencies": {
         "gulp": "^4.0.2",
-        "gulp-sass": "^5.1.0"
+        "gulp-sass": "^5.1.0",
+        "nuxt-gsap-module": "^1.7.2"
     }
 }

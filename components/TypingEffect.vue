@@ -18,7 +18,7 @@ export default {
         const displayTextArray = ["Web Developer", "Fitness Enthusiast"]
         const typingSpeed = 100
         const erasingSpeed = 100
-        const newTextDelay = 2000
+        const newTextDelay = 1500
         const displayTextArrayIndex = 0
         const charIndex = 0
 

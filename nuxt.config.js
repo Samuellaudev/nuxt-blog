@@ -1,7 +1,6 @@
 export default {
     // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
     ssr: false,
-
     // Target: https://go.nuxtjs.dev/config-target
     target: "static",
 
@@ -47,7 +46,7 @@ export default {
     components: true,
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: [],
+    buildModules: ["nuxt-gsap-module"],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -56,6 +55,12 @@ export default {
         // https://go.nuxtjs.dev/content
         "@nuxt/content",
     ],
+    gsap: {
+        extraPlugins: {
+            scrollTo: true,
+            scrollTrigger: true,
+        },
+    },
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {

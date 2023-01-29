@@ -1,17 +1,20 @@
 <template>
     <div class="main-page">
         <div class="container mb-5">
-            <div class="row mt-5 mb-5 gap-2">
-                <section class="section-introduction">
-                    <h1 class="name">
+            <div class="row mt-5 mb-5 gap-2 object-to-scroll">
+                <section class="section-introduction scroll-to-appear">
+                    <h1 class="name" v-gsap.fromTo="[
+                        { opacity: 0, y: -350 },
+                        { opacity: 1, y: 0, duration: 0.8 }
+                    ]">
                         <img class="icon-wow" src="@/assets/svg/wow.svg" alt="" />Hi, I'm Samuel Lau.
                     </h1>
                     <TypingEffect />
                 </section>
             </div>
             <el-divider />
-            <div class="row mt-3 mb-3 gap-2">
-                <section id="about" class="section-about-me col-12-xs col-6-sm col-6-xl">
+            <div class="row mt-3 mb-3 gap-2 object-to-scroll">
+                <section id="about" class="scroll-to-appear section-about-me col-12-xs col-6-sm col-6-xl">
                     <h2 class="about-section-title font-xl mb-2">Nice to meet you!</h2>
                     <div v-for="(paragraph, index) in paragraphContent" :key="index">
                         <p class="mb-2">{{ paragraph.content }}</p>
@@ -19,13 +22,13 @@
                 </section>
                 <section class="about-section-image col-12-xs col-6-sm col-6-xl">
                     <div class="pattern-dots-md gray-light logo-image">
-                        <img class="portrait-image" style="transform:translate(23px, -20px);" :src="require('@/assets/img/portrait_human.png')"/>
+                        <img class="portrait-image" style="transform:translate(23px, -20px);" :src="require('@/assets/img/portrait_human.png')" />
                     </div>
                 </section>
             </div>
             <el-divider />
-            <div class="row mt-3 mb-3 gap-2">
-                <h2 class="blog-section-title font-xl">Latest blogs</h2>
+            <div class="row mt-3 mb-3 gap-2 object-to-scroll">
+                <h2 class="blog-section-title font-xl scroll-to-appear">Latest blogs</h2>
                 <section class="section-latest-blog">
                     <div class="blog-individual-post" v-for="article of articles" :key="article.slug">
                         <nuxt-link class="blog-link" :to="{ name: 'blog-slug', params: { slug: article.slug } }">
@@ -42,8 +45,8 @@
                 </section>
             </div>
             <el-divider />
-            <div class="row mt-3 gap-2">
-                <section class="section-experience experience-section-content col-12-xs col-6-sm col-6-xl">
+            <div class="row mt-3 gap-2 object-to-scroll">
+                <section class="scroll-to-appear section-experience experience-section-content col-12-xs col-6-sm col-6-xl">
                     <h2 class="experience-section-title font-xl mb-2">Experience</h2>
                     <el-timeline class="timeline p-2 br-sm">
                         <el-timeline-item v-for="(activity, index) in activities" :key="index" :icon="activity.icon" :type="activity.type" :color="activity.color" :size="activity.size">
@@ -93,12 +96,32 @@ export default {
             articles,
         };
     },
+    mounted() {
+        this.animateOnScroll()
+    },
     methods: {
         formatDate(date) {
             const options = { year: "numeric", month: "long", day: "numeric" };
 
             return new Date(date).toLocaleDateString("en", options);
         },
+        animateOnScroll() {
+            const projects = document.querySelectorAll(".object-to-scroll");
+
+            projects.forEach(project => {
+                this.$gsap.from(project, {
+                    opacity: 0,
+                    yPercent: 10,
+                    scrollTrigger: {
+                        trigger: project.querySelector(".scroll-to-appear"),
+                        start: "top-=100 bottom-=200",
+                        end: "top center",
+                        toggleActions: "play none none reverse",
+                        markers: false
+                    }
+                });
+            });
+        }
     },
 };
 </script>
