@@ -7,7 +7,7 @@
                 </nuxt-link>
             </div>
             <template v-if="screenWidth > 480">
-                <el-menu class="header-menu" mode="horizontal" @select="handleSelect">
+                <el-menu class="header-menu" mode="horizontal">
                     <el-menu-item index="about">
                         <nuxt-link :to="{ path: '/', hash: '#about' }">About</nuxt-link>
                     </el-menu-item>
