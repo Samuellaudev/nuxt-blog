@@ -6,7 +6,7 @@
             <span class="article-created-date">{{ formatDate(article.createdAt) }}</span>
             <!-- <Tags :tags="tags" /> -->
         </div>
-        <img class="article-image" :src="require('@/assets/img/macbookPro.jpg')" :alt="article.alt">
+        <img class="article-image" :src="article.img" :alt="article.alt">
         <!-- <p>Article last updated: {{ formatDate(article.updatedAt) }}</p> -->
         <!-- <el-menu class="toc-menu">
             <el-submenu class="toc-submenu">

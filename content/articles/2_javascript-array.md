@@ -7,28 +7,29 @@ author:
   name: Samuel
   bio: All about Samuel and what he does and where he works
   img: https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80
+createdAt: "2023-01-15"
 tags: 
   - array
   - javascript
 ---
 
 <div class="html-content">
-  JavaScript, according to <a href="https://en.wikipedia.org/wiki/Functional_programming" target="_blank">Wikipedia</a>, can be considered as an example of functional programming, which has the following characteristics:
+  JavaScript, according to <a href="https://en.wikipedia.org/wiki/Functional_programming" target="_blank"><u>Wikipedia</u></a>, can be considered as an example of functional programming, which has the following characteristics:
   <hr><br>
   "<i>When a pure function is called with some given arguments, it will always return the same result, and cannot be affected by any mutable state or other side effects.</i>
   <hr><br>
-  Does all these arrays methods (map, filter, forEach and reduce) fit into this definition? Let's discuss using examples from <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSONPlaceholder</a>, a popular free fake API for testing.
+  Does all these arrays methods (map, filter, forEach and reduce) fit into this definition? Let's discuss using examples from <a href="https://jsonplaceholder.typicode.com/" target="_blank"><u>JSONPlaceholder</u></a>, a popular free fake API for testing.
 </div>
 
 ## Data
 
-The data that we are going to manipulate are got through this <code>async</code> function:
+The data that we are going to manipulate are from this <code>async</code> function:
 ```js
 async function fetchText() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/');
     const originalData = await response.json();
 
-    console.log(originalData)
+    console.log('originalData', originalData)
 }
 
 fetchText()
@@ -79,12 +80,11 @@ The result is an array of objects:
 <br>
 <p>Therefore, it can be seen as a pure function as it does not change the data structure of the original array.</p>
 
-```js[]
+```js
 async function fetchText() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/');
     const originalData = await response.json();
   
-      // Map
     const transformedData = originalData.map(item => {
       return {
         id: item.id,
@@ -102,8 +102,7 @@ async function fetchText() {
       }
     })
 
-    console.log(transformedData);
-    console.log(originalData);
+    console.log('transformedData', transformedData);
 }
 
 fetchText()
@@ -145,15 +144,14 @@ As you can check and compare the returned array with the original one, the origi
 <br>
 <p>Similar to <code>Array.map</code>, it leaves the original array untouched  while return us a new array which the elements passed the condition test.</p>
 
-```js[]
+```js
 async function fetchText() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/');
     const originalData = await response.json();
   
-      // Filter
     const filteredData = originalData.filter(item => item.website.includes('com'))
-    console.log(filteredData);
-    console.log(originalData);
+
+    console.log('filteredData', filteredData);
 }
 
 fetchText()
@@ -225,12 +223,11 @@ In the above example, we want to filter out those items that the name of their w
 <p>Unlike the two methods before, <code>Array.forEach</code> does not return us new, modified array, it actually returns us <code>undefined</code>. It's meant to do something for each array elements.</p>
 <br>
 
-```js[]
+```js
 async function fetchText() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users/');
     const originalData = await response.json();
   
-      // Filter
     const processedData = originalData.forEach(item => {
         item['companyName'] = item.company.name
         delete item['company']
@@ -262,9 +259,7 @@ fetchText()
   <template #content>
 
 ```js[console.log]
-// ForEach
-
-// processedData
+// ForEach - processedData
 undefined
 
 // originalData
@@ -290,7 +285,7 @@ undefined
   </template>
 </el-collapse-box>
 
-<p>As you can see, 'processedData' is equal to <code>undefined</code> while 'originalData', while is the original array, is modified.
+<p>As you can see, 'processedData' is equal to <code>undefined</code> while 'originalData', which is the original array, is modified.
 </p>
 <br>
 It can be seen as an impure function, as it produces side effects and alter the original array.
@@ -301,16 +296,20 @@ It can be seen as an impure function, as it produces side effects and alter the 
 
 ## Array.Reduce()
 
-<p>Unlike the two methods before, <code>Array.reduce</code> does not return us new, modified array, it actually returns us <code>undefined</code>. It's meant to do something for each array elements.</p>
-<br>
+<p><code>Array.reduce</code> can be a tricky one. We can transform every element like <code>Array.map</code> does or filter out some items which <code>Array.filter</code> is capable of. Furthermore, it can choose to affect or not the outer scope. According to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" target="_blank"><u>MDN</u></a>:</p>
+<div class="html-content">
+<hr><br>
+"<i>The <code>reduce()</code> method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.</i>
+<hr><br>
+</div>
+<p>So ultimately the result we get is a single value if we try to <code>return</code> it.</p>
 
-```js[]
+```js
 async function fetchText() {
     const response = await fetch("https://jsonplaceholder.typicode.com/users/");
     const originalData = await response.json();
 
-    // Reduce
-    const resultData = originalData.reduce((acc, item) => {
+    const reducedData = originalData.reduce((acc, item) => {
         if (item.website.includes("com")) {
             const currItem = {
                 id: item.id,
@@ -331,44 +330,74 @@ async function fetchText() {
         return acc;
     }, []);
 
-    console.log("resultData", resultData);
+    console.log("reducedData", reducedData);
     console.log('originalData', originalData);
 }
 
 fetchText();
 ```
 
-<p>In the above example, for each elements in the array, we want to perform the following operations:
-<br>
-<br>
-1. create new key-value pair (i.e. 'companyName': NEW_VALUE);<br>
-2. delete properties named 'company' and 'name';<br>
-3. transform the property 'address' with values that we set
-</p>
+<p>In the above example, we first want to filter out those items that its 'website' does not include <code>"com"</code>. Then we transform the structure of each item based on our needs. Finally, we use spread operator to clone the previously accumulated objects so that the newly returned array includes all the items.</p>
 <hr><br>
 <el-collapse-box>
   <template #content>
 
 ```js[console.log]
-// ForEach
-
-// processedData
-undefined
+// Reduce - reducedData
+[
+    {
+        "id": 8,
+        "username": "Maxime_Nienow",
+        "email": "Sherwood@rosamond.me",
+        "phone": "586.493.6943 x140",
+        "website": "jacynthe.com",
+        "companyName": "Abernathy Group",
+        "address": {
+            "address1": "Ellsworth Summit",
+            "address2": "Suite 729",
+            "city": "Aliyaview",
+            "zipCode": "45169"
+        }
+    },
+    {
+        "id": 9,
+        "username": "Delphine",
+        "email": "Chaim_McDermott@dana.io",
+        "phone": "(775)976-6794 x41206",
+        "website": "conrad.com",
+        "companyName": "Yost and Sons",
+        "address": {
+            "address1": "Dayna Park",
+            "address2": "Suite 449",
+            "city": "Bartholomebury",
+            "zipCode": "76495-3109"
+        }
+    }
+]
 
 // originalData
 [
     {
         "id": 1,
+        "name": "Leanne Graham",
         "username": "Bret",
         "email": "Sincere@april.biz",
+        "address": {
+            "street": "Kulas Light",
+            "suite": "Apt. 556",
+            "city": "Gwenborough",
+            "zipcode": "92998-3874",
+            "geo": {
+                "lat": "-37.3159",
+                "lng": "81.1496"
+            }
+        },
         "phone": "1-770-736-8031 x56442",
         "website": "hildegard.org",
-        "companyName": "Romaguera-Crona",
-        "address": {
-            "addressLine1": "Kulas Light",
-            "addressLine2": "Apt. 556",
-            "city": "Gwenborough",
-            "zipCode": "92998-3874"
+        "company": {
+            "name": "Romaguera-Crona",
+            "catchPhrase": "Multi-layered client-server neural-net",
+            "bs": "harness real-time e-markets"
         }
     },
     ...
@@ -378,11 +407,6 @@ undefined
   </template>
 </el-collapse-box>
 
-<p>As you can see, 'processedData' is equal to <code>undefined</code> while 'originalData', while is the original array, is modified.
-</p>
+<p>So basically we are using <code>Array.reduce</code> to replicate the exact same result that need <code>Array.filter</code> and <code>Array.map</code> combined together to produce. Beside, it does not alter the original array that <code>Array.filter</code> does.</p>
 <br>
-It can be seen as an impure function, as it produces side effects and alter the original array.
-<br><br>
-<p>Both <code>Array.map</code> and <code>Array.forEach</code> give us the same result, but in a different way. While the former returns us new array with original data untouched, the later returns us <code>undefined</code> and changes the original array permanently.
-</p>
-<div><el-divider/></div>
+<p>However, it could becomes hard to understand the codes if not careful enough. After all, it is a matter of choice between readability and efficiency.</p>
