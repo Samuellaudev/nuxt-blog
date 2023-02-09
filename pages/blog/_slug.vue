@@ -1,27 +1,12 @@
 <template>
     <article class="article-container container">
-        <!-- <AppSearchInput /> -->
         <div class="article-header">
             <h1 class="article-title">{{ article.title }}</h1>
             <span class="article-created-date">{{ formatDate(article.createdAt) }}</span>
-            <!-- <Tags :tags="tags" /> -->
         </div>
         <img class="article-image" :src="article.img" :alt="article.alt">
-        <!-- <p>Article last updated: {{ formatDate(article.updatedAt) }}</p> -->
-        <!-- <el-menu class="toc-menu">
-            <el-submenu class="toc-submenu">
-                <template slot="title">
-                    <span class="toc-title">Table of Content</span>
-                </template>
-                <el-menu-item-group v-for="(link) of article.toc" :key="link.id">
-                    <el-menu-item>
-                        <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
-                    </el-menu-item>
-                </el-menu-item-group>
-            </el-submenu>
-        </el-menu> -->
         <el-divider />
-        <nuxt-content :document="article" />
+        <nuxt-content :document="article" class="col-12-xs col-6-sm col-6-xl"/>
         <el-divider></el-divider>
         <Disqus class="disqus-frame" />
         <el-divider />

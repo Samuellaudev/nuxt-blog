@@ -30,7 +30,7 @@
             <div class="row mt-3 mb-3 gap-2 object-to-scroll">
                 <h2 class="blog-section-title font-xl scroll-to-appear">Latest blogs</h2>
                 <section class="section-latest-blog">
-                    <div class="blog-individual-post" v-for="article of articles" :key="article.slug">
+                    <div class="blog-individual-post col-12-xs col-6-sm col-6-xl" v-for="article of articles" :key="article.slug">
                         <nuxt-link class="blog-link" :to="{ name: 'blog-slug', params: { slug: article.slug } }">
                             <img class="blog-image" :src="article.img" alt="">
                         </nuxt-link>
