@@ -3,7 +3,6 @@ export default {
     ssr: false,
     // Target: https://go.nuxtjs.dev/config-target
     target: "static",
-
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: "Samuel Lau",
@@ -20,7 +19,7 @@ export default {
             { name: "format-detection", content: "telephone=no" },
         ],
         link: [
-            { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+            { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
             { rel: "stylesheet", href: "https://unpkg.com/pattern.css" },
         ],
     },

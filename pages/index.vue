@@ -114,7 +114,7 @@ export default {
                     yPercent: 10,
                     scrollTrigger: {
                         trigger: project.querySelector(".scroll-to-appear"),
-                        start: "top-=100 bottom-=200",
+                        start: "top-=100 bottom-=130",
                         end: "top center",
                         toggleActions: "play none none reverse",
                         markers: false

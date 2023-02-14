@@ -6,7 +6,7 @@
         </div>
         <img class="article-image" :src="article.img" :alt="article.alt">
         <el-divider />
-        <nuxt-content :document="article" class="col-12-xs col-6-sm col-6-xl"/>
+        <nuxt-content :document="article" class="col-12-xs col-6-sm col-12-xl"/>
         <el-divider></el-divider>
         <Disqus class="disqus-frame" />
         <el-divider />
