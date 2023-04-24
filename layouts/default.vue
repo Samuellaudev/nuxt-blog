@@ -17,6 +17,9 @@
                 <el-menu-item index="blog">
                     <nuxt-link to="/blog">Blog</nuxt-link>
                 </el-menu-item>
+                <el-menu-item index="webdocs">
+                    <a href="https://samuellauwebdevdoc.netlify.app/">Docs</a>
+                </el-menu-item>
             </el-menu>
             <div class="social-media-icons">
                 <div v-for="icon of socialIconsSettings" :key="icon.address">
