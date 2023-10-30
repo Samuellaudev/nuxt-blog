@@ -28,63 +28,92 @@ const paragraphsDetails = [
         content: `Learning to code and web design through a self-learning path is not easy. However, it’s
         the creative work that makes me happy and I enjoy bringing ideas to life through browser. It’s my
         pleasure to share it with others!`,
-    }
-]
+    },
+];
 
 const activitiesDetails = [
     {
-        title: 'Web Developer',
-        company: 'PressLogic',
-        timestamp: '2022-current',
-        type: 'primary',
-        size: 'large',
-    }, {
-        title: 'Junior Web Developer',
-        company: 'LANE EIGHT',
-        timestamp: '2022',
-    }, {
-        title: 'Front-End Web Developer',
-        company: 'Freelance',
-        timestamp: '2021-2022',
-    }, {
-        title: 'Fitness Trainer',
-        company: 'Chinese YMCA of Hong Kong',
-        timestamp: '2020-2021',
-    }, {
-        title: 'Omni Sport Leader',
-        company: 'Decathlon Hong Kong',
-        timestamp: '2017-2018'
-    }
-]
+        title: "Programmer",
+        company: "Automated Systems (H.K.) Limited",
+        timestamp: "2023",
+        type: "primary",
+        size: "large",
+    },
+    {
+        title: "Web Developer",
+        company: "PressLogic",
+        timestamp: "2022-2023",
+        type: "primary",
+        size: "large",
+    },
+    {
+        title: "Junior Web Developer",
+        company: "LANE EIGHT",
+        timestamp: "2022",
+    },
+    {
+        title: "Front-End Web Developer",
+        company: "Freelance",
+        timestamp: "2021-2022",
+    },
+    {
+        title: "Fitness Trainer",
+        company: "Chinese YMCA of Hong Kong",
+        timestamp: "2020-2021",
+    },
+    {
+        title: "Omni Sport Leader",
+        company: "Decathlon Hong Kong",
+        timestamp: "2017-2018",
+    },
+];
 
 const progressBarDetails = [
     {
-        skillTitle: 'HTML5 + CSS3',
+        skillTitle: "HTML5 + CSS3",
         strokeWidth: 26,
-        percentage: 90
-    }, {
-        skillTitle: 'JavaScript',
+        percentage: 80,
+    },
+    {
+        skillTitle: "JavaScript",
         strokeWidth: 24,
-        percentage: 80
-    }, {
-        skillTitle: 'Nuxt.js',
+        percentage: 80,
+    },
+    {
+        skillTitle: "Nuxt.js",
         strokeWidth: 22,
-        percentage: 70
-    }, {
-        skillTitle: 'Vue.js',
+        percentage: 70,
+    },
+    {
+        skillTitle: "Vue.js",
         strokeWidth: 20,
-        percentage: 70
-    }, {
-        skillTitle: 'Node.js',
+        percentage: 70,
+    },
+    {
+        skillTitle: "React.js",
         strokeWidth: 20,
-        percentage: 40
-    }, {
-        skillTitle: 'PhotoShop & Illustrator',
+        percentage: 50,
+    },
+    {
+        skillTitle: "Node.js",
         strokeWidth: 20,
-        percentage: 30
-    }
-]
+        percentage: 40,
+    },
+    {
+        skillTitle: "AWS Cloud Services",
+        strokeWidth: 20,
+        percentage: 40,
+    },
+    {
+        skillTitle: "PhotoShop & Illustrator",
+        strokeWidth: 20,
+        percentage: 30,
+    },
+];
 
 export default {
-    socialMediaIcons, paragraphsDetails, activitiesDetails, progressBarDetails
+    socialMediaIcons,
+    paragraphsDetails,
+    activitiesDetails,
+    progressBarDetails,
 };

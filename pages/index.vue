@@ -68,7 +68,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -160,11 +159,11 @@ export default {
 
         .typing-effect-container {
             ::v-deep h1 {
-                font-size: 2.7rem;
+                font-size: 2.5rem;
             }
 
             ::v-deep .blinking-cursor {
-                font-size: 2.7rem;
+                font-size: 2.5rem;
             }
         }
     }
@@ -289,7 +288,7 @@ export default {
             background: rgba(255, 255, 255, 0.1);
 
             .bar-item {
-                padding: 0.77rem 0;
+                padding: 0.52rem 0;
             }
 
             ::v-deep .el-progress .el-progress-bar {
