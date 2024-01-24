@@ -3,31 +3,31 @@
         <div class="container">
             <div class="header-logo">
                 <nuxt-link to="/">
-                    <img class="logo-image" :src="require('@/assets/img/Logo.png')" />
+                    <img class="logo-image" :src=" require('@/assets/img/Logo.png') " />
                 </nuxt-link>
             </div>
-            <template v-if="screenWidth > 480">
+            <template v-if=" screenWidth > 480 ">
                 <el-menu class="header-menu" mode="horizontal">
                     <el-menu-item index="about">
-                        <nuxt-link :to="{ path: '/', hash: '#about' }">About</nuxt-link>
+                        <nuxt-link :to=" { path: '/', hash: '#about' } ">About</nuxt-link>
                     </el-menu-item>
                     <el-menu-item index="blog">
                         <nuxt-link to="/blog">Blog</nuxt-link>
                     </el-menu-item>
-                    <el-menu-item index="docs">
+                    <!-- <el-menu-item index="docs">
                         <a href="https://samuellauwebdevdoc.netlify.app/">Docs</a>
-                    </el-menu-item>
+                    </el-menu-item> -->
                 </el-menu>
                 <div class="social-media-icons">
-                    <div v-for="icon of socialIconsSettings" :key="icon.address">
-                        <a class="icon" :href="icon.address" target="_blank">
-                            <font-awesome-icon :icon="`fa-brands ${icon.icon}`" />
+                    <div v-for=" icon  of  socialIconsSettings " :key=" icon.address ">
+                        <a class="icon" :href=" icon.address " target="_blank">
+                            <font-awesome-icon :icon=" `fa-brands ${ icon.icon }` " />
                         </a>
                     </div>
                 </div>
             </template>
             <template v-else>
-                <font-awesome-icon @click="handleClick" class="icon-hamburger" icon="fa-solid fa-bars" />
+                <font-awesome-icon @click=" handleClick " class="icon-hamburger" icon="fa-solid fa-bars" />
             </template>
         </div>
     </div>

@@ -1,30 +1,30 @@
 <template>
     <div>
         <el-header>
-            <LayoutHeader @open-menu="handleOpenMenu" />
+            <LayoutHeader @open-menu=" handleOpenMenu " />
         </el-header>
         <Nuxt class="default-nuxt-content" />
         <el-footer>
             <LayoutFooter />
         </el-footer>
         <!-- LayoutSidebar -->
-        <el-drawer class="side-bar-drawer" ref="drawer" :title="null" size="40%" :visible.sync="drawerSettings.drawer" :direction="drawerSettings.direction" :show-close="false">
-            <header @click="closeMenu" class="drawer-header">CLOSE MENU <i class="el-icon-circle-close" /></header>
+        <el-drawer class="side-bar-drawer" ref="drawer" :title=" null " size="40%" :visible.sync=" drawerSettings.drawer " :direction=" drawerSettings.direction " :show-close=" false ">
+            <header @click=" closeMenu " class="drawer-header">CLOSE MENU <i class="el-icon-circle-close" /></header>
             <el-menu class="header-menu" mode="vertical">
                 <el-menu-item index="about">
-                    <nuxt-link :to="{ path: '/', hash: '#about' }">About</nuxt-link>
+                    <nuxt-link :to=" { path: '/', hash: '#about' } ">About</nuxt-link>
                 </el-menu-item>
                 <el-menu-item index="blog">
                     <nuxt-link to="/blog">Blog</nuxt-link>
                 </el-menu-item>
-                <el-menu-item index="webdocs">
+                <!-- <el-menu-item index="webdocs">
                     <a href="https://samuellauwebdevdoc.netlify.app/">Docs</a>
-                </el-menu-item>
+                </el-menu-item> -->
             </el-menu>
             <div class="social-media-icons">
-                <div v-for="icon of socialIconsSettings" :key="icon.address">
-                    <a class="icon" :href="icon.address" target="_blank">
-                        <font-awesome-icon :icon="`fa-brands ${icon.icon}`" />
+                <div v-for=" icon  of  socialIconsSettings " :key=" icon.address ">
+                    <a class="icon" :href=" icon.address " target="_blank">
+                        <font-awesome-icon :icon=" `fa-brands ${ icon.icon }` " />
                     </a>
                 </div>
             </div>
